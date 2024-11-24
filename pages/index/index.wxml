@@ -20,6 +20,7 @@
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
     </view>
+    <l-button type="default">默认按钮</l-button>
     <view class="usermotto">
       <text class="user-motto">{{motto}}</text>
     </view>
