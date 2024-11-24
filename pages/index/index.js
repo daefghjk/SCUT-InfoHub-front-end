@@ -1,5 +1,6 @@
 // index.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+const app = getApp()
 
 Page({
   data: {
@@ -11,6 +12,12 @@ Page({
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+  },
+  async onLoad(){
+    const res = await app.call({
+      path:'/users'
+    })
+    console.log('业务返回结果',res)
   },
   bindViewTap() {
     wx.navigateTo({
