@@ -1,12 +1,29 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs"
+    "pages/logs/logs",
+    "pages/home/home"
   ],
   "window": {
-    "navigationBarTextStyle": "black",
-    "navigationBarTitleText": "Weixin",
-    "navigationBarBackgroundColor": "#ffffff"
+    "navigationBarTextStyle": "white",
+    "navigationBarTitleText": "智慧校园平台",
+    "navigationBarBackgroundColor": "#3399FF"
+  },
+  "tabBar": {
+    "list": [
+      
+      {
+        "pagePath": "pages/index/index",
+        "text": "登入界面"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "text": "日志"
+      }
+    ],
+    "position": "bottom",
+    "custom": false
+
   },
   "style": "v2",
   "componentFramework": "glass-easel",

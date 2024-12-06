@@ -13,6 +13,19 @@ Page({
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
   },
+  //登入方法
+  login(){
+      wx.login({
+        success: (res) => {
+          console.log(res);
+        },
+      })
+      wx.navigateTo({
+        url:'/pages/home/home',
+    })
+
+  },
+
   async onLoad(){
     const res = await app.call({
       path:'/users'

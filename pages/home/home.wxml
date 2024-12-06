@@ -1,0 +1,25 @@
+<!--pages/home/home.wxml-->
+<view class="container">
+ <l-avatar text="aaaa" placement="right" src="/pages/home/image/1.png" class="adjusted-image"></l-avatar>
+
+ <l-grid class="adjusted-grid">
+    <l-grid-item key="one" slot="one">
+        <view class="num">26</view>
+        <view class="text">帖子</view>
+    </l-grid-item>
+    <l-grid-item key="two" slot="two">
+         <view class="num">1</view>
+         <view class="text">关注</view>
+         </l-grid-item>
+    <l-grid-item key="three" slot="three">
+          <view class="num">6666</view>
+          <view class="text">粉丝</view>
+          </l-grid-item>
+</l-grid>
+
+
+ <l-list title="隐私" icon="password" tagShape="circle" class="adjusted-list"/>
+</view>
+
+
+
