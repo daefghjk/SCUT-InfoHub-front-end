@@ -1,0 +1,13 @@
+/* pages/post/post.wxss */
+.post-container{
+    display: flex;
+}
+/*喜欢与评论的左右布局*/
+.left-container{
+    display: flex;
+    padding: 10px;
+}
+.right-container{
+    display: flex;
+    padding: 10px;
+}

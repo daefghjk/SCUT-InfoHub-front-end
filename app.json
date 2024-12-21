@@ -2,7 +2,11 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/dynamic/dynamic",
+    "pages/post/post",
+    "pages/subscribe/subscribe",
+    "pages/fans/fans"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -11,10 +15,13 @@
   },
   "tabBar": {
     "list": [
-      
       {
         "pagePath": "pages/index/index",
         "text": "登入界面"
+      },
+      {
+        "pagePath": "pages/post/post",
+        "text": "首页"
       },
       {
         "pagePath": "pages/logs/logs",
@@ -23,7 +30,6 @@
     ],
     "position": "bottom",
     "custom": false
-
   },
   "style": "v2",
   "componentFramework": "glass-easel",
