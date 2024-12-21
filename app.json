@@ -3,14 +3,11 @@
     "pages/index/index",
     "pages/logs/logs",
     "pages/home/home",
-<<<<<<< HEAD
-    "pages/cmentsec/cmentsec"
-=======
+    "pages/cmentsec/cmentsec",
     "pages/dynamic/dynamic",
     "pages/post/post",
     "pages/subscribe/subscribe",
     "pages/fans/fans"
->>>>>>> master
   ],
   "window": {
     "navigationBarTextStyle": "white",
