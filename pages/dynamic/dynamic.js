@@ -1,4 +1,4 @@
-// pages/home/home.js
+// pages/dynamic/dynamic.js
 Page({
 
   /**
@@ -7,30 +7,13 @@ Page({
   data: {
 
   },
-//点击帖子跳转
-dynamic(){
-    wx.navigateTo({
-      url:'/pages/dynamic/dynamic',
-  })
 
-},
-subscribe(){
-    wx.navigateTo({
-        url:'/pages/subscribe/subscribe',
-    })
-},
-fans(){
-    wx.navigateTo({
-        url:'/pages/fans/fans',
-    })
-},
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
 
   },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

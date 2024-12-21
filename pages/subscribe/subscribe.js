@@ -1,29 +1,17 @@
-// pages/home/home.js
+// pages/subscribe/subscribe.js
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+      is1:true,
+      is2:true,
+      is3:true
   },
-//点击帖子跳转
-dynamic(){
-    wx.navigateTo({
-      url:'/pages/dynamic/dynamic',
-  })
-
-},
-subscribe(){
-    wx.navigateTo({
-        url:'/pages/subscribe/subscribe',
-    })
-},
-fans(){
-    wx.navigateTo({
-        url:'/pages/fans/fans',
-    })
-},
+  sub1(){this.setData({is1:!this.data.is1 });},
+  sub2(){this.setData({is2:!this.data.is2 });},
+  sub3(){this.setData({is3:!this.data.is3 });},
   /**
    * 生命周期函数--监听页面加载
    */
