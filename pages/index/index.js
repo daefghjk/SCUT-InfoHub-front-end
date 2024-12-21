@@ -16,22 +16,23 @@ Page({
   //登入方法
   login(){
       wx.login({
-        success: (res) => {
+        success: async (res) => {
+          const res1 = await app.call({
+            path:'/login/',
+            method:'POST',
+            data: {
+              'code':res.code,
+            },
+          })
+          wx.navigateTo({
+            url:'/pages/home/home',
+          })
           console.log(res);
+          console.log(res1);
         },
       })
-      wx.navigateTo({
-        url:'/pages/home/home',
-    })
-
   },
 
-  async onLoad(){
-    const res = await app.call({
-      path:'/users'
-    })
-    console.log('业务返回结果',res)
-  },
   bindViewTap() {
     wx.navigateTo({
       url: '../logs/logs'
