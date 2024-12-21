@@ -1,9 +1,5 @@
 /* pages/cmentsec/cmentsec.wxss */
 /* 楼主帖子内容 */
-.comment-section-container{
-
-}
-
 .comment-input-container{
     width: 100%;
 }
