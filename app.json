@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/logs/logs",
-    "pages/home/home"
+    "pages/home/home",
+    "pages/cmentsec/cmentsec"
   ],
   "window": {
     "navigationBarTextStyle": "white",
@@ -11,7 +12,6 @@
   },
   "tabBar": {
     "list": [
-      
       {
         "pagePath": "pages/index/index",
         "text": "登入界面"
@@ -19,11 +19,14 @@
       {
         "pagePath": "pages/logs/logs",
         "text": "日志"
+      },
+      {
+        "pagePath": "pages/cmentsec/cmentsec",
+        "text": "评论区"
       }
     ],
     "position": "bottom",
     "custom": false
-
   },
   "style": "v2",
   "componentFramework": "glass-easel",

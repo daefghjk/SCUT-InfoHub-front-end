@@ -1,0 +1,39 @@
+<!--pages/cmentsec/cmentsec.wxml-->
+<!--帖子内容显示区域-->
+<view class="comment-section-container">
+  <view class="post-content">
+    <text>{{post.title}}</text>
+    <view class="post-body">
+      <rich-text nodes="{{post.body}}"></rich-text>
+    </view>
+  </view>
+
+  <!-- 评论区域 -->
+  <view class="comment-area">
+    <!-- 评论列表（假设已经有评论数据） -->
+    <block wx:for="{{comments}}" wx:key="id">
+      <view class="comment-item">
+        <text class="comment-user">{{item.user}}</text>
+        <text class="comment-text">{{item.content}}</text>
+      </view>
+    </block>
+
+    <!-- 评论输入框和按钮 -->
+    <view class="comment-input-container">
+      <input 
+        type="text" 
+        placeholder="写评论..." 
+        bindinput="handleInput" 
+        value="{{commentContent}}" 
+        class="comment-input"
+      />
+      <button 
+        type="primary" 
+        bindtap="submitComment" 
+        class="comment-button"
+      >
+        评论
+      </button>
+    </view>
+  </view>
+</view>
