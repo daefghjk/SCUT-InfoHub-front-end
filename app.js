@@ -28,10 +28,11 @@ App({
         path: obj.path, // 填入业务自定义路径和参数，根目录，就是 / 
         method: obj.method||'GET', // 按照自己的业务开发，选择对应的方法
         // dataType:'text', // 如果返回的不是json格式，需要添加此项
-        header: {
+        header: obj.header || {
           'X-WX-SERVICE': 'scut-infohub', // xxx中填入服务名称（微信云托管 - 服务管理 - 服务列表 - 服务名称）
           // 其他header参数
-        }
+        },
+        data: obj.data,
         // 其余参数同 wx.request
       })
       console.log(`微信云托管调用结果${result.errMsg} | callid:${result.callID}`)
