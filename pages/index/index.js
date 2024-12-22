@@ -15,7 +15,7 @@ Page({
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
   },
   onLoad(){
-      if(1){
+      if(0){
         wx.switchTab({
             url:'/pages/post/post',
         }) 
