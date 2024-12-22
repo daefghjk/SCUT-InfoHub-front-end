@@ -1,6 +1,8 @@
 <!--pages/post/post.wxml-->
 <!-- avatar -->
 <!--第一个-->
+
+<block wx:if="{{log}}">
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
 title="aaaa1"describe="18小时前">
   <!-- 此处为content -->
@@ -29,8 +31,11 @@ title="aaaa1"describe="18小时前">
 </l-tag>
 </l-card>
 
-
+</block>
 <!--第二个-->
+
+
+
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
 title="aaaa2"describe="18小时前">
   <view class="avter-content">
@@ -52,7 +57,8 @@ title="aaaa2"describe="18小时前">
     bg-color="#f3f3f3"
     font-color="#3963BC"
     slot="more"
-    size="large">
+    size="large"
+    >
     +关注
 </l-tag>
 </l-card>

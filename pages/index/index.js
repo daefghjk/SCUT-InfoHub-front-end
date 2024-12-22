@@ -4,6 +4,7 @@ const app = getApp()
 
 Page({
   data: {
+    logs:true,
     motto: 'Hello World',
     userInfo: {
       avatarUrl: defaultAvatarUrl,
@@ -12,6 +13,14 @@ Page({
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
+  },
+  onLoad(){
+      if(1){
+        wx.switchTab({
+            url:'/pages/post/post',
+        }) 
+      }
+
   },
   //登入方法
   login(){
@@ -24,13 +33,13 @@ Page({
               'code':res.code,
             },
           })
-          wx.navigateTo({
-            url:'/pages/home/home',
-          })
           console.log(res);
           console.log(res1);
         },
       })
+      wx.switchTab({
+        url:'/pages/post/post',
+    })
   },
 
   bindViewTap() {

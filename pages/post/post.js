@@ -1,18 +1,20 @@
 // pages/post/post.js
+const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+log:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-
+this.setData({log:app.globalData.logg})
   },
 
   /**

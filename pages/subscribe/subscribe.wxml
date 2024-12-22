@@ -3,6 +3,9 @@
 <l-tabs bind:linchange="changeTabs">
 <l-tabpanel tab="关注" key="one"slot="one">
 <!--第一个-->
+
+<block wx:if="{{is111}}">
+
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
 title="aaaa1">
   <l-tag 
@@ -12,12 +15,18 @@ title="aaaa1">
     font-color="#f3f3f3"
     slot="more"
     size="large"
-    class="is1">
+    class="is1"
+    class="is111">
     {{is1?'已关注':'关注'}}
 </l-tag>
 </l-card>
 
+</block>
+
 <!--第二个-->
+
+<block wx:if="{{is222}}">
+
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
 title="aaaa2">
   <l-tag 
@@ -27,12 +36,18 @@ title="aaaa2">
     font-color="#f3f3f3"
     slot="more"
     size="large"
-    class="is2">
+    class="is2"
+    class="is222">
     {{is2?'已关注':'关注'}}
 </l-tag>
 </l-card>
 
+</block>
+
 <!--第三个-->
+
+<block wx:if="{{is333}}">
+
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
 title="aaaa3">
   <l-tag 
@@ -42,11 +57,17 @@ title="aaaa3">
     font-color="#f3f3f3"
     slot="more"
     size="large"
-    class="is3">
+    class="is3"
+    class="is333">
     {{is3?'已关注':'关注'}}
 </l-tag>
 </l-card>
+
+</block>
+
 </l-tabpanel>
+
+
 
 
 <l-tabpanel tab="粉丝" key="two"slot="two">
