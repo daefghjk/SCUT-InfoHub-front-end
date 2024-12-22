@@ -22,15 +22,24 @@
       },
       {
         "pagePath": "pages/post/post",
-        "text": "首页"
-      },
-      {
-        "pagePath": "pages/logs/logs",
-        "text": "日志"
+        "text": "首页",
+        "iconPath": "/pictures2024/post.png",
+        "selectedIconPath": "/pictures2024/post.png"
       },
       {
         "pagePath": "pages/cmentsec/cmentsec",
         "text": "评论区"
+      },
+      {
+        "pagePath": "pages/home/home",
+        "text": "我的",
+        "iconPath": "/pictures2024/home.png",
+        "selectedIconPath": "/pictures2024/home.png"
+      },{
+        "pagePath": "pages/logs/logs",
+        "text": "日志",
+        "iconPath": "/pictures2024/logs.png",
+        "selectedIconPath": "/pictures2024/logs.png"
       }
     ],
     "position": "bottom",

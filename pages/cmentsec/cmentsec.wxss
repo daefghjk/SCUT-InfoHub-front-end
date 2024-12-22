@@ -1,5 +1,36 @@
 /* pages/cmentsec/cmentsec.wxss */
-/* 楼主帖子内容 */
 .comment-input-container{
-    width: 100%;
+    display:flex;
+    position: relative;
+    left:5px;
+
+}
+.post-container{
+    
+    display: flex;
+}
+/*喜欢与评论的左右布局*/
+.left-container{
+    
+    display: flex;
+    padding: 10px;
+}
+.right-container{
+    
+    display: flex;
+    padding: 10px;
+}
+.right-comment-container{
+    display: flex;
+    padding: 10px;
+    left:50px;
+}
+.comment-button{
+    top: 0px;
+    height: 45px;
+}
+.comment-area{
+    display: block;
+    position: relative;
+    left:15px;
 }
