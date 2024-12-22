@@ -5,11 +5,11 @@ Page({
    * 页面的初始数据
    */
   data: {
-      is1:true,
-      is2:true,
-      is3:true
+      is1:true,is111:true,
+      is2:true,is222:true,
+      is3:true,is333:true
   },
-  sub1(){this.setData({is1:!this.data.is1 });},
+  sub1(){this.setData({is1:!this.data.is1});}, /*改变状态后向后端发数据*/
   sub2(){this.setData({is2:!this.data.is2 });},
   sub3(){this.setData({is3:!this.data.is3 });},
   /**

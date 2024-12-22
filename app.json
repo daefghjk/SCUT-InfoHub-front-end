@@ -17,18 +17,19 @@
   "tabBar": {
     "list": [
       {
-        "pagePath": "pages/index/index",
-        "text": "登入界面"
-      },
-      {
         "pagePath": "pages/post/post",
         "text": "首页",
         "iconPath": "/pictures2024/post.png",
         "selectedIconPath": "/pictures2024/post.png"
       },
       {
+<<<<<<< HEAD
+        "pagePath": "pages/home/home",
+        "text": "登入界面"
+=======
         "pagePath": "pages/cmentsec/cmentsec",
         "text": "评论区"
+<<<<<<< HEAD
       },
       {
         "pagePath": "pages/home/home",
@@ -40,6 +41,9 @@
         "text": "日志",
         "iconPath": "/pictures2024/logs.png",
         "selectedIconPath": "/pictures2024/logs.png"
+=======
+>>>>>>> master
+>>>>>>> master
       }
     ],
     "position": "bottom",

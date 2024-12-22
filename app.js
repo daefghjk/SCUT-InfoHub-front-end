@@ -13,7 +13,6 @@ App({
       }
     })
   },
-
   async call(obj, number=0){
     const that = this
     if(that.cloud == null){
@@ -53,6 +52,7 @@ App({
   },
 
   globalData: {
+    logg:0,
     userInfo: null
   },
 })
