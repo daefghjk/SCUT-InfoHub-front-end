@@ -1,17 +1,7 @@
 // app.js
 App({
   onLaunch() {
-    // 展示本地存储能力
-    const logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
-
-    // 登录
-    wx.login({
-      success: res => {
-        // 发送 res.code 到后台换取 openId, sessionKey, unionId
-      }
-    })
+    
   },
   async call(obj, number=0){
     const that = this
@@ -34,8 +24,8 @@ App({
         data: obj.data,
         // 其余参数同 wx.request
       })
-      console.log(`微信云托管调用结果${result.errMsg} | callid:${result.callID}`)
-      return result.data // 业务数据在data中
+      console.log(result)
+      return result
     } catch(e){
       const error = e.toString()
        // 如果错误信息为未初始化，则等待300ms再次尝试，因为init过程是异步的
@@ -53,6 +43,13 @@ App({
 
   globalData: {
     logg:0,
-    userInfo: null
+    userInfo:{
+      openid:'',
+      session_key:'',
+      name:'',
+      grade:'',
+      major:'',
+      avatarUrl:'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
+    }
   },
 })

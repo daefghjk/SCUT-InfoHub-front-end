@@ -4,63 +4,47 @@ const app = getApp()
 
 Page({
   data: {
-    logs:true,
-    motto: 'Hello World',
-    userInfo: {
-      avatarUrl: defaultAvatarUrl,
-      nickName: '',
+    userInfo:{
+      name:'',
+      avatarUrl:defaultAvatarUrl
     },
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
     canIUseNicknameComp: wx.canIUse('input.type.nickname'),
   },
-  onLoad(){
-      if(0){
-        wx.switchTab({
-            url:'/pages/post/post',
-        }) 
-      }
-
-  },
-  //登入方法
-  login(){
-      wx.login({
-        success: async (res) => {
-          const res1 = await app.call({
-            path:'/login/',
-            method:'POST',
-            data: {
-              'code':res.code,
-            },
-          })
-          console.log(res);
-          console.log(res1);
-        },
-      })
+  async onLoad(){
+    const res = await app.call({
+      path: '/users/check/',
+    })
+    if (res.statusCode != 400)
+      app.globalData.userInfo.openid = res.data.openid
+    else
+      throw new Error(`登录状态验证失败`)
+    if (res.statusCode == 200)
+      app.globalData.userInfo = res.data
+    if (app.globalData.userInfo.name != ''){
+      this.setData({
+        hasUserInfo:true,
+      }),
       wx.switchTab({
         url:'/pages/post/post',
-    })
-  },
-
-  bindViewTap() {
-    wx.navigateTo({
-      url: '../logs/logs'
-    })
+      }) 
+    }
   },
   onChooseAvatar(e) {
     const { avatarUrl } = e.detail
-    const { nickName } = this.data.userInfo
+    const { name } = this.data.userInfo
     this.setData({
       "userInfo.avatarUrl": avatarUrl,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      hasUserInfo: name && avatarUrl && avatarUrl !== defaultAvatarUrl,
     })
   },
   onInputChange(e) {
-    const nickName = e.detail.value
+    const name = e.detail.value
     const { avatarUrl } = this.data.userInfo
     this.setData({
-      "userInfo.nickName": nickName,
-      hasUserInfo: nickName && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      "userInfo.name": name,
+      hasUserInfo: name && avatarUrl && avatarUrl !== defaultAvatarUrl,
     })
   },
   getUserProfile(e) {
@@ -74,6 +58,17 @@ Page({
           hasUserInfo: true
         })
       }
+    })
+  },
+  async login(){
+    app.globalData.userInfo = this.data.userInfo
+    await app.call({
+      path: 'users/',
+      method: 'POST',
+      data: this.data.userInfo,
+    })
+    wx.switchTab({
+      url:'/pages/post/post',
     })
   },
 })
