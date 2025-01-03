@@ -6,6 +6,8 @@ Page({
   data: {
     userInfo:{
       name:'',
+      grade:'',
+      major:'',
       avatarUrl:defaultAvatarUrl
     },
     hasUserInfo: false,
@@ -22,7 +24,7 @@ Page({
       throw new Error(`登录状态验证失败`)
     if (res.statusCode == 200)
       app.globalData.userInfo = res.data
-    if (app.globalData.userInfo.name != ''){
+    if (app.globalData.userInfo.name != '' && app.globalData.userInfo.grade != '' && app.globalData.userInfo.major != ''){
       this.setData({
         hasUserInfo:true,
       }),
@@ -33,18 +35,34 @@ Page({
   },
   onChooseAvatar(e) {
     const { avatarUrl } = e.detail
-    const { name } = this.data.userInfo
+    const { name, grade, major } = this.data.userInfo
     this.setData({
       "userInfo.avatarUrl": avatarUrl,
-      hasUserInfo: name && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      hasUserInfo: name!='' && grade!='' && major!='' && avatarUrl && avatarUrl !== defaultAvatarUrl,
     })
   },
-  onInputChange(e) {
+  onInputNameChange(e) {
     const name = e.detail.value
-    const { avatarUrl } = this.data.userInfo
+    const { avatarUrl, grade, major } = this.data.userInfo
     this.setData({
       "userInfo.name": name,
-      hasUserInfo: name && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      hasUserInfo: name!='' && grade!='' && major!='' && avatarUrl && avatarUrl !== defaultAvatarUrl,
+    })
+  },
+  onInputGradeChange(e) {
+    const grade = e.detail.value
+    const { avatarUrl, name, major } = this.data.userInfo
+    this.setData({
+      "userInfo.grade": grade,
+      hasUserInfo: name!='' && grade!='' && major!='' && avatarUrl && avatarUrl !== defaultAvatarUrl,
+    })
+  },
+  onInputMajorChange(e) {
+    const major = e.detail.value
+    const { avatarUrl, name, grade } = this.data.userInfo
+    this.setData({
+      "userInfo.major": major,
+      hasUserInfo: name!='' && grade!='' && major!='' && avatarUrl && avatarUrl !== defaultAvatarUrl,
     })
   },
   getUserProfile(e) {

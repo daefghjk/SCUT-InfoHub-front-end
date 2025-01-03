@@ -8,7 +8,15 @@
         </button>
         <view class="nickname-wrapper">
           <text class="nickname-label">昵称</text>
-          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputChange" />
+          <input type="nickname" class="nickname-input" placeholder="请输入昵称" bind:change="onInputNameChange" />
+        </view>
+        <view class="nickname-wrapper">
+          <text class="nickname-label">年级</text>
+          <input type="text" class="grade-input" placeholder="请输入年级" bind:change="onInputGradeChange" />
+        </view>
+        <view class="nickname-wrapper">
+          <text class="nickname-label">专业</text>
+          <input type="text" class="major-input" placeholder="请输入专业" bind:change="onInputMajorChange" />
         </view>
       </block>
       <block wx:elif="{{!hasUserInfo}}">
@@ -18,8 +26,12 @@
       <block wx:else>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
         <text class="userinfo-name">{{userInfo.name}}</text>
+        <text class="userinfo-grade">{{userInfo.grade}}</text>
+        <text class="userinfo-major">{{userInfo.major}}</text>
       </block>
     </view>
-    <l-button type="default" bind:tap="login">登入</l-button>
+    <view>
+      <l-button type="default" bind:tap="login">登入</l-button>
+    </view>
   </view>
 </scroll-view>
