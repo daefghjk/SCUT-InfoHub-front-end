@@ -9,7 +9,7 @@ Page({
         likes_count: '',//修改为该帖子的点赞数
         commentcontent: '',//评论的内容用这个接收
         comments: [],
-        
+        i:1,
     },
     like() {
         console.log("你点击了点赞按钮")
@@ -22,13 +22,11 @@ Page({
         const res = await app.call({
             path: '/posts/',
         })
+        let comments=[];
+        //for (let i=0;i<=)
         this.setData({
-            create_time: res.data.results[0].create_time
-        });
-        this.setData({
-            content: res.data.results[0].content
-        });
-        this.setData({
+            create_time: res.data.results[0].create_time,
+            content: res.data.results[0].content,
             likes_count: res.data.results[0].likes_count
         });
         console.log(res.data)
@@ -93,5 +91,8 @@ Page({
                 });
             }
         });
-    }
+    },
+    
+
+
 })
