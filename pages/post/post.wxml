@@ -10,7 +10,6 @@
             很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
             很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
         </view>
-<<<<<<< HEAD
         <view class="post-container">
             <view class="left-container">
                 <l-icon name="like" color="#666" size="35" />
@@ -20,38 +19,6 @@
                 <l-icon name="comment" color="#666" size="35" />
                 <view class="number">10</view>
             </view>
-=======
-  </view>
-  <l-tag shape="circle"
-    bg-color="#f3f3f3"
-    font-color="#3963BC"
-    slot="more"
-    size="large">
-    +关注
-</l-tag>
-</l-card>
-
-</block>
-<!--第二个-->
-
-
-
-<l-card type="avatar" l-class="card" image="/pages/home/image/1.png"
-title="{{name}}" describe="{{time}}" bind:tap="card">
-  <view class="avter-content">
-  
-
-   {{text1}}
-  </view>
-  <view class="post-container">
-  <view class="left-container">
-      <l-icon name="like" color="#666" size="35" bind:tap="like"/>
-      <view class="number">{{like}}</view>
-  </view>
-  <view class="right-container">
-        <l-icon name="comment" color="#666" size="35"/>
-        <view class="number">10</view>
->>>>>>> master
         </view>
         <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
             +关注

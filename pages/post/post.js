@@ -32,7 +32,6 @@ Page({
             post:post
         });
 
-<<<<<<< HEAD
     },
     subscribe() {
         const a = app.call({
@@ -45,54 +44,6 @@ Page({
                 method: 'POST'
             })
         }
-=======
-  /**
-   * 页面的初始数据
-   */
-  data: {
-    text1:'',
-    name:'',
-    content:'',
-    log:1,
-    name:app.globalData.userInfo.name,
-    open_id:'',
-    content:'',
-    time:'',
-    like:0,
-    log:1
-  },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  
-
-  async onLoad() {
-this.setData({log:app.globalData.logg});
-    const res =await app.call({
-      path: '/posts/',
-    })
-    this.setData({content:res.data.results[0].content});
-    this.setData({like:res.data.results[0].likes_count});
-    this.setData({time:res.data.results[0].create_time});
-    this.setData({open_id:res.data.results[0].open_id});
-    this.data.text1=app.globalData.userInfo.post_text
-    console.log(res.data)
-    console.log("123")
-    console.log(app.globalData.userInfo.post_text)
-
-  },
-  card(){
-    wx.navigateTo({
-        url:'/pages/cmentsec/cmentsec',
-    })
-
-  },
-  subscribe(){
-    app.call({
-        path: '/api/fans/follow/open_id/',
-        method:'POST'})
->>>>>>> master
         console.log("关注操作")
 
     },
