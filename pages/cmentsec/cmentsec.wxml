@@ -1,59 +1,51 @@
 <!--帖子内容显示区域-->
-<l-card type="avatar" l-class="card" image="" 
-title="{{name}}"describe="{{create_time}}">
-  <!-- 此处为content -->
-  <view class="avter-content">
-   {{content}}
-  </view>
-  <view class="post-container">
-  <view class="left-container">
-      <l-icon name="like" color="#666" size="35" bind:tap="like"/>
-      
-      <view class="number">{{likes_count}}</view>
-  </view>
-  <view class="right-container">
-        <l-icon name="comment" color="#666" size="35"/>
-        <view class="number">10</view>
-        </view>
-  </view>
-  <l-tag shape="circle"
-    bg-color="#f3f3f3"
-    font-color="#3963BC"
-    slot="more"
-    size="large">
-    +关注
-</l-tag>
-</l-card>
-    <!-- 评论输入框和按钮 -->
-    <view class="comment-input-container">
-        <view class="left-comment-container">
-            <textarea type="text" placeholder="写下你的评论..." 
-                     bindinput="handlecommentinput" 
-                            auto-height="{{true}}"
-      />
-        </view>
-       <button class="comment-button"
-        type="primary" 
-        bindtap="submitcomment" >></button>
+<l-card type="avatar" l-class="card" image="avatarUrl"
+ title="{{name}}" describe="{{create_time}}">
+    <!-- 此处为content -->
+    <view class="avter-content">
+        {{content}}
     </view>
-    <!-- 评论区内容 -->
-    <view class="comment-list">
-  <!-- 评论的内容用comment-content表示 -->
-  <block wx:for="{{comment-content}}" wx:key="id">
-  <view class="comment-item">
-  <text>{{item.content}}</text>
-  </view>
-  </block>
-    </view>
+    <view class="post-container">
+        <view class="left-container">
+            <l-icon name="like" color="#666" size="35" bind:tap="like" />
 
-  <!-- 评论区域 -->
-  <view class="comment-area">评论区:
-   <view><!-- 评论列表（假设已经有评论数据） -->
-    <block wx:for="{{comments}}" wx:key="id">
-      <view class="comment-item">
-        <text class="comment-user">{{item.user}}</text>
-        <text class="comment-text">{{item.content}}</text>
-      </view>
+            <view class="number">{{likes_count}}</view>
+        </view>
+        <view class="right-container">
+            <l-icon name="comment" color="#666" size="35" />
+            <view class="number">10</view>
+        </view>
+    </view>
+    <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
+        +关注
+    </l-tag>
+</l-card>
+<!-- 评论输入框和按钮 -->
+<view class="comment-input-container">
+    <view class="left-comment-container">
+        <textarea type="text" placeholder="写下你的评论..." bindinput="handlecommentinput" auto-height="{{true}}" />
+    </view>
+    <button class="comment-button" type="primary" bindtap="submitcomment">></button>
+</view>
+<!-- 评论区内容 -->
+<view class="comment-list">
+    <!-- 评论的内容用comment-content表示 -->
+    <block wx:for="{{comment-content}}" wx:key="id">
+        <view class="comment-item">
+            <text>{{item.content}}</text>
+        </view>
     </block>
-   </view>
-  </view>
+</view>
+
+<!-- 评论区域 -->
+<view class="comment-area">评论区:
+    <view>
+        <!-- 评论列表（假设已经有评论数据） -->
+        <block wx:for="{{comments}}" wx:key="id">
+            <view class="comment-item">
+                <text class="comment-user">{{item.user}}</text>
+                <text class="comment-text">{{item.content}}</text>
+            </view>
+        </block>
+    </view>
+</view>

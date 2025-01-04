@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    text1:'',
     name:'',
     content:'',
     log:1,
@@ -21,16 +22,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad() {
-    this.setData({log:app.globalData.logg});
-        const res =await app.call({
-          path: '/comments/',
-    
-          
-        })
-        this.setData({content:res.data.results[0].post});
-        console.log(res.data)
-      },
+  
 
   async onLoad() {
 this.setData({log:app.globalData.logg});
@@ -41,7 +33,16 @@ this.setData({log:app.globalData.logg});
     this.setData({like:res.data.results[0].likes_count});
     this.setData({time:res.data.results[0].create_time});
     this.setData({open_id:res.data.results[0].open_id});
+    this.data.text1=app.globalData.userInfo.post_text
     console.log(res.data)
+    console.log("123")
+    console.log(app.globalData.userInfo.post_text)
+
+  },
+  card(){
+    wx.navigateTo({
+        url:'/pages/cmentsec/cmentsec',
+    })
 
   },
   subscribe(){

@@ -37,10 +37,11 @@ title="aaaa1"describe="18小时前">
 
 
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png"
-title="{{name}}" describe="{{time}}">
+title="{{name}}" describe="{{time}}" bind:tap="card">
   <view class="avter-content">
   
-   {{content}}
+
+   {{text1}}
   </view>
   <view class="post-container">
   <view class="left-container">

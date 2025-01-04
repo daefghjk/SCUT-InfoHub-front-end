@@ -17,6 +17,11 @@ Page({
 },
 send(){
     this.setData({text0:this.data.text});
+    app.globalData.userInfo.post_text=this.data.text0
+    console.log("123")
+    wx.navigateTo({
+        url:'/pages/post/post',
+    })
 },
   /**
    * 生命周期函数--监听页面加载
@@ -27,6 +32,7 @@ send(){
         })
 
         console.log(res.data)
+        
       },
 
   /**

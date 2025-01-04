@@ -22,10 +22,7 @@
         "iconPath": "/pictures2024/post.png",
         "selectedIconPath": "/pictures2024/post.png"
       },
-      {
-        "pagePath": "pages/cmentsec/cmentsec",
-        "text": "评论区"
-      },
+      
       {
         "pagePath": "pages/home/home",
         "text": "我的",
