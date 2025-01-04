@@ -7,25 +7,20 @@ Page({
    * 页面的初始数据
    */
   data: {
-<<<<<<< HEAD
     name:'',
-          content:'',
-    
-log:1
-=======
-      name:app.globalData.userInfo.name,
-      open_id:'',
-      content:'',
-      time:'',
-      like:0,
-      log:1
->>>>>>> master
+    content:'',
+    log:1,
+    name:app.globalData.userInfo.name,
+    open_id:'',
+    content:'',
+    time:'',
+    like:0,
+    log:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-<<<<<<< HEAD
   async onLoad() {
     this.setData({log:app.globalData.logg});
         const res =await app.call({
@@ -36,8 +31,6 @@ log:1
         this.setData({content:res.data.results[0].post});
         console.log(res.data)
       },
-=======
->>>>>>> master
 
   async onLoad() {
 this.setData({log:app.globalData.logg});

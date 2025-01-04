@@ -12,7 +12,6 @@ Page({
     subscribe:'',
     fans:''
   },
-<<<<<<< HEAD
   async onLoad() {
     this.setData({log:app.globalData.logg});
         const res =await app.call({
@@ -23,7 +22,6 @@ Page({
         this.setData({content:res.data.results[2].content});
         console.log(res.data)
       },
-=======
   async onLoad() {
         const res =await app.call({
           path: '/刘益煌/fans/',
@@ -31,7 +29,6 @@ Page({
 
         console.log(res.data)
       },
->>>>>>> master
 //点击帖子跳转
 dynamic(){
     wx.navigateTo({
