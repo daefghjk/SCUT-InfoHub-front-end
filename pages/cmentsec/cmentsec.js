@@ -23,7 +23,15 @@ Page({
             path: '/posts/',
         })
         let comments=[];
-        //for (let i=0;i<=)
+    /*
+    for (let i=0;i<=;i++){
+        const a =await app.call({
+            path:'/comments/',
+            method:'GET'
+            data:{}
+                        })
+    }
+    */
         this.setData({
             create_time: res.data.results[0].create_time,
             content: res.data.results[0].content,
