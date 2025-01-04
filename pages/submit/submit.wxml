@@ -1,0 +1,14 @@
+<!--pages/submit/submit.wxml-->
+<view class="container">
+<l-textarea 
+placeholder="说说你的想法吧..."
+ maxlength="9999"  auto-height="{{true}}"
+ indicator="{{true}}"
+ bind:lininput="message"  class="message1"
+/>
+<l-button width="120" height="60" class="button" bind:tap="send">发送</l-button>
+</view>
+<view>
+<text>{{text}}</text>
+</view>
+<text>{{text0}}</text>

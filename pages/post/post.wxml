@@ -37,8 +37,42 @@ title="aaaa1"describe="18小时前">
 
 
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
+<<<<<<< HEAD
 title="{{content}}"describe="18小时前">
+=======
+title="{{name}}" describe="{{time}}">
   <view class="avter-content">
+  
+   {{content}}
+  </view>
+  <view class="post-container">
+  <view class="left-container">
+      <l-icon name="like" color="#666" size="35" bind:tap="like"/>
+      <view class="number">{{like}}</view>
+  </view>
+  <view class="right-container">
+        <l-icon name="comment" color="#666" size="35"/>
+        <view class="number">10</view>
+        </view>
+  </view>
+  <l-tag shape="circle"
+    bg-color="#f3f3f3"
+    font-color="#3963BC"
+    slot="more"
+    size="large"
+    bind:tap="subscribe"
+
+    >
+    +关注
+</l-tag>
+</l-card>
+
+<!--第三个-->
+<l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
+title="aaaa3"describe="18小时前">
+>>>>>>> master
+  <view class="avter-content">
+  很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
   很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
   很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
   很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
@@ -57,13 +91,13 @@ title="{{content}}"describe="18小时前">
     bg-color="#f3f3f3"
     font-color="#3963BC"
     slot="more"
-    size="large"
-    >
+    size="large">
     +关注
 </l-tag>
 </l-card>
+<l-icon class="plus" name="add" color="#0066CC" size="90">
+</l-icon>
 
-<!--第三个-->
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
 title="aaaa3"describe="18小时前">
   <view class="avter-content">
@@ -90,3 +124,37 @@ title="aaaa3"describe="18小时前">
     +关注
 </l-tag>
 </l-card>
+<l-icon class="plus" name="add" color="#0066CC" size="90">
+</l-icon>
+
+<l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
+title="aaaa3"describe="18小时前">
+  <view class="avter-content">
+  很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
+  很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
+  很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
+  很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
+  </view>
+  <view class="post-container">
+  <view class="left-container">
+      <l-icon name="like" color="#666" size="35"/>
+      <view class="number">160</view>
+  </view>
+  <view class="right-container">
+        <l-icon name="comment" color="#666" size="35"/>
+        <view class="number">10</view>
+        </view>
+  </view>
+  <l-tag shape="circle"
+    bg-color="#f3f3f3"
+    font-color="#3963BC"
+    slot="more"
+    size="large">
+    +关注
+</l-tag>
+</l-card>
+
+<view class="container">
+<l-icon class="plus" bind:tap="click"  name="add" color="#0066CC" size="90">
+</l-icon>
+</view>

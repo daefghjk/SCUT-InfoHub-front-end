@@ -1,4 +1,4 @@
-// pages/home/home.js
+// pages/submit/submit.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const app = getApp()
 Page({
@@ -7,51 +7,27 @@ Page({
    * 页面的初始数据
    */
   data: {
-    name:app.globalData.userInfo.name,
-    avatarUrl:app.globalData.userInfo.avatarUrl,
-    subscribe:'',
-    fans:''
+      text:'aaaaaaa',
+      text0:'abc'
+
   },
-<<<<<<< HEAD
-  async onLoad() {
-    this.setData({log:app.globalData.logg});
-        const res =await app.call({
-          path: '/posts/',
-    
-          
-        })
-        this.setData({content:res.data.results[2].content});
-        console.log(res.data)
-      },
-=======
-  async onLoad() {
-        const res =await app.call({
-          path: '/刘益煌/fans/',
-        })
-
-        console.log(res.data)
-      },
->>>>>>> master
-//点击帖子跳转
-dynamic(){
-    wx.navigateTo({
-      url:'/pages/dynamic/dynamic',
-  })
+  message(e){
+    this.setData({text:e.detail.value});
 
 },
-subscribe(){
-    wx.navigateTo({
-        url:'/pages/subscribe/subscribe',
-    })
-},
-fans(){
-    wx.navigateTo({
-        url:'/pages/fans/fans',
-    })
+send(){
+    this.setData({text0:this.data.text});
 },
   /**
    * 生命周期函数--监听页面加载
    */
+  async onLoad() {
+        const res =await app.call({
+        path: '/posts/',
+        })
+
+        console.log(res.data)
+      },
 
   /**
    * 生命周期函数--监听页面初次渲染完成

@@ -11,3 +11,11 @@
     display: flex;
     padding: 10px;
 }
+.container{
+    position: relative;
+}
+.plus{
+    position: fixed;
+    bottom:20px; 
+    right: 20px; 
+}
