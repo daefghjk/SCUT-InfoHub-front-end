@@ -6,7 +6,8 @@
     "pages/dynamic/dynamic",
     "pages/post/post",
     "pages/subscribe/subscribe",
-    "pages/fans/fans"
+    "pages/fans/fans",
+    "pages/submit/submit"
   ],
   "window": {
     "navigationBarTextStyle": "white",

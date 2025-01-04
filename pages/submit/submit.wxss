@@ -1,0 +1,10 @@
+/* pages/submit/submit.wxss */
+.container{
+    padding:20px;
+}
+.message1{
+    width:100%;
+}
+.button{
+    margin-top:20px;
+}

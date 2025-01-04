@@ -1,6 +1,6 @@
 <!--pages/home/home.wxml-->
 <view class="container">
- <l-avatar text="aaaa" placement="right" src="/pages/home/image/1.png" class="adjusted-image"></l-avatar>
+ <l-avatar text="{{name}}" placement="right" src="/pages/home/image/1.png" class="adjusted-image"></l-avatar>
 
  <l-grid class="adjusted-grid">
     <l-grid-item key="one" slot="one">
