@@ -7,6 +7,16 @@ Page({
   data: {
 
   },
+  async onLoad() {
+    this.setData({log:app.globalData.logg});
+        const res =await app.call({
+          path: '/posts/',
+    
+          
+        })
+        this.setData({content:res.data.results[2].content});
+        console.log(res.data)
+      },
 //点击帖子跳转
 dynamic(){
     wx.navigateTo({

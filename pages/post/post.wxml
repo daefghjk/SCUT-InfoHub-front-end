@@ -37,7 +37,7 @@ title="aaaa1"describe="18小时前">
 
 
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
-title="aaaa2"describe="18小时前">
+title="{{content}}"describe="18小时前">
   <view class="avter-content">
   很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。
   很简单，豆瓣现在这样就给大家指了一条明路。很简单，豆瓣现在这样就给大家指了一条明路。

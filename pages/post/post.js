@@ -7,15 +7,25 @@ Page({
    * 页面的初始数据
    */
   data: {
+    name:'',
+          content:'',
+    
 log:1
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-this.setData({log:app.globalData.logg})
-  },
+  async onLoad() {
+    this.setData({log:app.globalData.logg});
+        const res =await app.call({
+          path: '/comments/',
+    
+          
+        })
+        this.setData({content:res.data.results[0].post});
+        console.log(res.data)
+      },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
