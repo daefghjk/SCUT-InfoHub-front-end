@@ -1,4 +1,3 @@
-// index.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const app = getApp()
 
@@ -8,7 +7,7 @@ Page({
       name:'',
       grade:'',
       major:'',
-      avatarUrl:defaultAvatarUrl
+      avatarurl:defaultAvatarUrl
     },
     hasUserInfo: false,
     canIUseGetUserProfile: wx.canIUse('getUserProfile'),
@@ -24,7 +23,7 @@ Page({
       throw new Error(`登录状态验证失败`)
     if (res.statusCode == 200)
       app.globalData.userInfo = res.data
-    if (app.globalData.userInfo.name != '' && app.globalData.userInfo.grade != '' && app.globalData.userInfo.major != ''){
+    if (app.globalData.userInfo.name != '' && app.globalData.userInfo.grade != '' && app.globalData.userInfo.major != '' && app.globalData.userInfo.avatarurl != defaultAvatarUrl){
       this.setData({
         hasUserInfo:true,
       }),
@@ -37,32 +36,32 @@ Page({
     const { avatarUrl } = e.detail
     const { name, grade, major } = this.data.userInfo
     this.setData({
-      "userInfo.avatarUrl": avatarUrl,
+      "userInfo.avatarurl": avatarUrl,
       hasUserInfo: name!='' && grade!='' && major!='' && avatarUrl && avatarUrl !== defaultAvatarUrl,
     })
   },
   onInputNameChange(e) {
     const name = e.detail.value
-    const { avatarUrl, grade, major } = this.data.userInfo
+    const { avatarurl, grade, major } = this.data.userInfo
     this.setData({
       "userInfo.name": name,
-      hasUserInfo: name!='' && grade!='' && major!='' && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      hasUserInfo: name!='' && grade!='' && major!='' && avatarurl && avatarurl !== defaultAvatarUrl,
     })
   },
   onInputGradeChange(e) {
     const grade = e.detail.value
-    const { avatarUrl, name, major } = this.data.userInfo
+    const { avatarurl, name, major } = this.data.userInfo
     this.setData({
       "userInfo.grade": grade,
-      hasUserInfo: name!='' && grade!='' && major!='' && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      hasUserInfo: name!='' && grade!='' && major!='' && avatarurl && avatarurl !== defaultAvatarUrl,
     })
   },
   onInputMajorChange(e) {
     const major = e.detail.value
-    const { avatarUrl, name, grade } = this.data.userInfo
+    const { avatarurl, name, grade } = this.data.userInfo
     this.setData({
       "userInfo.major": major,
-      hasUserInfo: name!='' && grade!='' && major!='' && avatarUrl && avatarUrl !== defaultAvatarUrl,
+      hasUserInfo: name!='' && grade!='' && major!='' && avatarurl && avatarurl !== defaultAvatarUrl,
     })
   },
   getUserProfile(e) {
@@ -79,6 +78,12 @@ Page({
     })
   },
   async login(){
+    const path = `avatar/${app.globalData.userInfo.openid}.jpeg`
+    const fileID = await app.uploadFile(this.data.userInfo.avatarurl, path)
+    this.setData({
+      "userInfo.avatarurl":fileID
+    })
+    console.log(this.data.userInfo.avatarurl)
     app.globalData.userInfo = this.data.userInfo
     await app.call({
       path: 'users/',
