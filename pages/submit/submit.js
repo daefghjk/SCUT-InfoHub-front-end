@@ -1,8 +1,8 @@
-// pages/submit/submit.js
 const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia07jQodd2FJGIYQfG0LAJGFxM4FbnQP6yfMxBgJ0F3YRqJCJ1aPAK2dQagdusBZg/0'
 const app = getApp()
 Page({
 
+<<<<<<< HEAD
     /**
      * 页面的初始数据
      */
@@ -44,6 +44,39 @@ Page({
 
         console.log(res.data)
     },
+=======
+  /**
+   * 页面的初始数据
+   */
+  data: {
+      text:'aaaaaaa',
+      text0:'abc'
+
+  },
+  message(e){
+    this.setData({text:e.detail.value});
+
+},
+send(){
+    this.setData({text0:this.data.text});
+    app.globalData.userInfo.post_text=this.data.text0
+    console.log("123")
+    wx.navigateTo({
+        url:'/pages/post/post',
+    })
+},
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  async onLoad() {
+        const res =await app.call({
+        path: '/posts/',
+        })
+
+        console.log(res.data)
+        
+      },
+>>>>>>> master
 
     /**
      * 生命周期函数--监听页面初次渲染完成

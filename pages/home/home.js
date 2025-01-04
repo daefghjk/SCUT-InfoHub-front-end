@@ -12,6 +12,16 @@ Page({
     subscribe:'',
     fans:''
   },
+  async onLoad() {
+    this.setData({log:app.globalData.logg});
+        const res =await app.call({
+          path: '/posts/',
+    
+          
+        })
+        this.setData({content:res.data.results[2].content});
+        console.log(res.data)
+      },
   async onLoad() {
         const res =await app.call({
           path: '/刘益煌/fans/',
