@@ -1,5 +1,7 @@
 /* pages/post/post.wxss */
+
 .post-container{
+    transform:translateX(220px);
     display: flex;
 }
 /*喜欢与评论的左右布局*/
@@ -19,3 +21,4 @@
     bottom:20px; 
     right: 20px; 
 }
+

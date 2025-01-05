@@ -2,53 +2,149 @@ const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia0
 const app = getApp()
 Page({
     data: {
-        name: app.globalData.userInfo.name,//修改为该帖子的作者的名字
-        avatarUrl: app.globalData.userInfo.avatarUrl,//修改为该帖子作者的头像
-        content: '',//修改为该贴子的内容
-        create_time: '',//修改为该帖子的发布时间
-        likes_count: '',//修改为该帖子的点赞数
-        commentcontent: '',//评论的内容用这个接收
+        commentcontent:'',
+        obj: {
+            content: '',
+            name: '',
+            likes_count: 0,
+            create_time: '',
+            comments_count: 0,
+            post_id: 0,
+
+            title: '',
+            avatarurl: ''
+        },
+        comments:[],
+        post_id: 0,
+        name: '', //修改为该帖子的作者的名字
+        avatarUrl: '', //修改为该帖子作者的头像
+        content: '', //修改为该贴子的内容
+        create_time: '', //修改为该帖子的发布时间
+        likes_count: '', //修改为该帖子的点赞数
+        commentcontent: '', //评论的内容用这个接收
         comments: [],
-        i:1,
+        i: 1,
     },
-    like() {
-        console.log("你点击了点赞按钮")
-        app.call({
-            path: '/posts/1/like/', // 后端接口地址
-            method: 'POST',
-        })
-    },//点击点赞按钮，实现点赞数加一
-    async onLoad() {
+    onLoad(options) {
+       this.setData({post_id:options.post_id})
+       
+    },
+    async onShow(){
+        let i=this.data.post_id
         const res = await app.call({
             path: '/posts/',
         })
+        let post = [];
+        let obj = {
+            content: '',
+            name: '',
+            likes_count: 0,
+            create_time: '',
+            comments_count: 0,
+            post_id: 0,
+            title: '',
+            avatarurl: ''
+        }
+        for (let j = 0; j <= res.data.results.length-1; j++) {
+           
+            if (res.data.results[j].post_id == i) {
+              
+                    const a = await app.call({
+                        path: '/users/',
+                        method: 'GET',
+                        data: {
+                            openid: res.data.results[j].poster
+                        }
+                    })
+                    obj = res.data.results[j]
+                    obj.name = a.data.name
+                    obj.avatarurl = a.data.avatarurl
+                   
+                this.setData({
+                    obj: obj
+                });
+               
+            }
+        }
+
+
+        const a = await app.call({
+            path: '/comments/',
+            data:{
+                post_id:this.data.obj.post_id
+            }
+        })
+       
         let comments=[];
-    /*
-    for (let i=0;i<=;i++){
-        const a =await app.call({
-            path:'/comments/',
-            method:'GET'
-            data:{}
-                        })
-    }
-    */
+        let obj1={
+            content:'',
+            comment_id:0,
+            name:'',
+            create_time:'',
+            post_id:0,
+            author_id:'',
+            avatarurl:''
+
+        }
+        for(let i=0;i<=a.data.results.length-1;i++){
+            
+            const b = await app.call({
+                path: '/users/',
+                method: 'GET',
+                data: {
+                    openid:a.data.results[i].author
+
+                }
+            })
+            obj1=a.data.results[i]
+            obj1.name=b.data.name
+            obj1.avatarurl=b.data.avatarurl
+            comments[i]=obj1
+
+        }
         this.setData({
-            create_time: res.data.results[0].create_time,
-            content: res.data.results[0].content,
-            likes_count: res.data.results[0].likes_count
+            comments:comments
         });
-        console.log(res.data)
+     
+
+        
+
+
+
+
     },
+    like(e) {
+        const post_index = e.currentTarget.dataset.post_index
+        
+        app.call({
+            path: `/posts/${this.data.obj.post_id}/like/`,
+            method: 'POST'
+        })
+        this.onShow()
+        
+        
+        
+    },
+    comments_like(e){
+            const post_index = e.currentTarget.dataset.post_index
+            
+            app.call({
+                path: `/comments/${this.data.comments[post_index].comment_id}/like/`,
+                method: 'POST'
+            })
+            this.onShow()
+
+    },
+    
     handlecommentinput(e) {
         this.setData({
             commentcontent: e.detail.value
         });
     }, //将输入框内的内容传递给commentcontent变量
     submitcomment() {
-        const {
-            commentcontent
-        } = this.data;
-        if (!commentcontent) {
+        
+       
+        if (!this.data.commentcontent) {
             wx.showToast({
                 title: '评论内容不能为空',
                 icon: 'none'
@@ -56,13 +152,13 @@ Page({
             return;
         }
         // 发送评论到后端
-        app.call({
+        const a=app.call({
             path: '/comments/', // 后端接口地址
             method: 'POST',
             data: {
-                post_id: app.globalData.userInfo.name, //待更改
-                content: commentcontent,
-                openid: app.globalData.userInfo.openid
+                post: this.data.post_id, //待更改
+                content: this.data.commentcontent,
+                author: app.globalData.userInfo.openid
             },
             success: (res) => {
                 if (res.data.success) {
@@ -70,21 +166,8 @@ Page({
                         title: '评论成功',
                         icon: 'success'
                     });
-                    // 重新获取所有评论并刷新页面
-                    app.call({
-                        path: '/comments/', // 后端接口地址
-                        method: 'GET',
-                        data: {
-                            post_id: app.globalData.userInfo.name, //待更改
-                            content: commentcontent,
-                            openid: app.globalData.userInfo.openid
-                        }
-                    })
-                    this.fetchComments();
-                    // 清空输入框
-                    this.setData({
-                        commentcontent: ''
-                    });
+                   
+                
                 } else {
                     wx.showToast({
                         title: '评论失败',
@@ -98,9 +181,12 @@ Page({
                     icon: 'none'
                 });
             }
+            
         });
+        this.onShow()
+        console.log(a)
     },
-    
+
 
 
 })

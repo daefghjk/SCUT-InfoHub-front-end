@@ -1,9 +1,0 @@
-/* pages/dynamic/dynamic.wxss */
-  /* 调整图片的位置 */
-  .adjusted-image {
-    position: absolute; /* 子元素设置为绝对定位 */
-    top: 20px; /* 向下移动50px */
-    left: 20px; /* 向右移动50px */
-    width: 50px; /* 图片宽度 */
-    height: 50px; /* 图片高度 */
-  }

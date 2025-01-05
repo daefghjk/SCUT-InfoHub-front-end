@@ -3,23 +3,16 @@
 <l-tabs bind:linchange="changeTabs">
 <l-tabpanel tab="粉丝" key="one"slot="one">
 
-<!--第一个-->
-<l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
-title="aaaa1">
-</l-card>
-
-<!--第二个-->
-<l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
-title="aaaa2">
-</l-card>
-
-<!--第三个-->
-<l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 
-title="aaaa3">
-</l-card>
+<view wx:for="{{fans}}">
+<l-card type="avatar" l-class="card" image="{{item.avatarurl}}" title="{{item.name}}" ></l-card>
+</view>
 </l-tabpanel>
 
 <l-tabpanel tab="关注" key="two"slot="two">
+
+<view wx:for="{{subscribe}}">
+<l-card type="avatar" l-class="card" image="{{item.avatarurl}}" title="{{item.name}}" ></l-card>
+</view>
 
 <!--第一个-->
 <l-card type="avatar" l-class="card" image="/pages/home/image/1.png" 

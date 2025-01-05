@@ -1,24 +1,27 @@
 <!--pages/home/home.wxml-->
+
+
+
 <view class="container">
- <l-avatar text="{{name}}" placement="right" src="/pages/home/image/1.png" class="adjusted-image"></l-avatar>
+ <l-avatar text="{{name}}" placement="right" src="{{avatarUrl}}" class="adjusted-image"></l-avatar>
 
  <l-grid class="adjusted-grid">
     <l-grid-item key="one" slot="one">
-        <view class="num" bind:tap="dynamic">26</view>
-        <view class="text" bind:tap="dynamic">帖子</view>
+        <view class="num" >{{grade}}</view>
+        <view class="text" >{{major}}</view>
     </l-grid-item>
     <l-grid-item key="two" slot="two">
          <view class="num" bind:tap="subscribe">3</view>
          <view class="text" bind:tap="subscribe">关注</view>
          </l-grid-item>
     <l-grid-item key="three" slot="three">
-          <view class="num" bind:tap="fans">6666</view>
+          <view class="num" bind:tap="fans">{{number_fans}}</view>
           <view class="text" bind:tap="fans">粉丝</view>
           </l-grid-item>
 </l-grid>
-
- <l-list title="隐私" icon="password" tagShape="circle" class="adjusted-list"/>
- 
+<view class="container_image">
+<image class="image" src="cloud://django-2gexqesn60f421f5.646a-django-2gexqesn60f421f5-1331039662/1.png"></image>
+</view>
 </view>
 
 

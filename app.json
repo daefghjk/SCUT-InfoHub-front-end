@@ -3,7 +3,6 @@
     "pages/index/index",
     "pages/home/home",
     "pages/cmentsec/cmentsec",
-    "pages/dynamic/dynamic",
     "pages/post/post",
     "pages/subscribe/subscribe",
     "pages/fans/fans",
@@ -12,7 +11,8 @@
   "window": {
     "navigationBarTextStyle": "white",
     "navigationBarTitleText": "智慧校园平台",
-    "navigationBarBackgroundColor": "#3399FF"
+    "navigationBarBackgroundColor": "#3399FF",
+    "enablePullDownRefresh": true
   },
   "tabBar": {
     "list": [
@@ -22,7 +22,6 @@
         "iconPath": "/pictures2024/post.png",
         "selectedIconPath": "/pictures2024/post.png"
       },
-      
       {
         "pagePath": "pages/home/home",
         "text": "我的",

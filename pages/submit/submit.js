@@ -28,6 +28,7 @@ Page({
                 content: this.data.text0
             }
         })
+        
         wx.switchTab({
             url:'/pages/post/post',
         })
@@ -58,9 +59,6 @@ Page({
 
     },
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
     onHide() {
 
     },

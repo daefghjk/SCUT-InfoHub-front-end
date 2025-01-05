@@ -8,9 +8,12 @@ Page({
    */
   data: {
     name:app.globalData.userInfo.name,
-    avatarUrl:app.globalData.userInfo.avatarUrl,
+    avatarUrl:app.globalData.userInfo.avatarurl,
+    grade: app.globalData.userInfo.grade,
+    major: app.globalData.userInfo.major,
     subscribe:'',
-    fans:''
+    fans:[],
+    number_fans:0
   },
   async onLoad() {
     this.setData({log:app.globalData.logg});
@@ -26,7 +29,17 @@ Page({
         const res =await app.call({
           path: '/刘益煌/fans/',
         })
-
+        let fans=[];
+        for(let i=0;i<=res.data.length-1;i++){
+            fans[i]=res.data
+        //avatarurl
+        //name
+        }
+        this.setData({
+            fans:fans,
+            number_fans:res.data.length
+        });
+        
         console.log(res.data)
       },
 //点击帖子跳转

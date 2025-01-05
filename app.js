@@ -24,7 +24,6 @@ App({
         data: obj.data,
         // 其余参数同 wx.request
       })
-      console.log(result)
       return result
     } catch (e) {
       const error = e.toString()

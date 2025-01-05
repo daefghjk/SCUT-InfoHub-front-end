@@ -8,7 +8,3 @@ placeholder="说说你的想法吧..."
 />
 <l-button width="120" height="60" class="button" bind:tap="send">发送</l-button>
 </view>
-<view>
-<text>{{text}}</text>
-</view>
-<text>{{text0}}</text>

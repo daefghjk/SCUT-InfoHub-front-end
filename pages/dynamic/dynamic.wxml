@@ -1,9 +1,0 @@
-<!--pages/dynamic/dynamic.wxml-->
-<l-avatar text="aaaa" placement="right" src="/pages/home/image/1.png" class="adjusted-image"></l-avatar>
-<!-- cover-->
-<l-card type="cover"
-        image="/pages/home/image/1.png"
-        title="年味儿的科技大升级">
-    <view class="content">
-    一部分人回乡，一部分人把父母接到了身边，还有一总有--些科技，升级了生活方式，延展了过年形式</view>
-</l-card>

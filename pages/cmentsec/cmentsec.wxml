@@ -1,19 +1,19 @@
 <!--帖子内容显示区域-->
-<l-card type="avatar" l-class="card" image="avatarUrl"
- title="{{name}}" describe="{{create_time}}">
+<l-card type="avatar" l-class="card" image="{{obj.avatarurl}}"
+ title="{{obj.name}}" describe="{{obj.create_time}}">
     <!-- 此处为content -->
     <view class="avter-content">
-        {{content}}
+        {{obj.content}}
     </view>
     <view class="post-container">
         <view class="left-container">
-            <l-icon name="like" color="#666" size="35" bind:tap="like" />
+            <l-icon name="like" color="#666" size="35" bind:tap="like" data-post_index="{{index}}"/>
 
-            <view class="number">{{likes_count}}</view>
+            <view class="number">{{obj.likes_count}}</view>
         </view>
         <view class="right-container">
             <l-icon name="comment" color="#666" size="35" />
-            <view class="number">10</view>
+            <view class="number">{{obj.comments_count}}</view>
         </view>
     </view>
     <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large">
@@ -27,25 +27,30 @@
     </view>
     <button class="comment-button" type="primary" bindtap="submitcomment">></button>
 </view>
-<!-- 评论区内容 -->
-<view class="comment-list">
-    <!-- 评论的内容用comment-content表示 -->
-    <block wx:for="{{comment-content}}" wx:key="id">
-        <view class="comment-item">
-            <text>{{item.content}}</text>
-        </view>
-    </block>
-</view>
+
 
 <!-- 评论区域 -->
 <view class="comment-area">评论区:
-    <view>
-        <!-- 评论列表（假设已经有评论数据） -->
-        <block wx:for="{{comments}}" wx:key="id">
-            <view class="comment-item">
-                <text class="comment-user">{{item.user}}</text>
-                <text class="comment-text">{{item.content}}</text>
-            </view>
-        </block>
-    </view>
+   
 </view>
+
+<view wx:for="{{comments}}">
+<l-card 
+    type="avatar" 
+    l-class="card" 
+    image="{{item.avatarurl}}" 
+    title="{{item.name}}" 
+    describe="{{item.create_time}}"
+>
+    <view class="avter-content">
+        {{item.content}}
+    </view>
+    <view class="post-container">
+        <view class="left-container">
+            <l-icon name="like" color="#666" size="35" bind:tap="comments_like" data-post_index="{{index}}"/>
+            <view class="number">{{item.likes_count}}</view>
+    </view></view>
+    
+</l-card>
+</view>
+

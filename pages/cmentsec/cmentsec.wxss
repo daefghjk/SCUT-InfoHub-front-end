@@ -34,3 +34,8 @@
     position: relative;
     left:15px;
 }
+
+.post-container{
+    transform:translateX(220px);
+    
+}

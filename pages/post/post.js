@@ -5,7 +5,7 @@ Page({
         post:[],
         log: 1
     },
-    async onLoad() {
+    async onShow() {
         this.setData({
             log: app.globalData.logg
         });
@@ -13,24 +13,37 @@ Page({
             path: '/posts/',
         })
         let post=[];
+        let obj={
+            content:'',
+            name:'',
+            likes_count:0,
+            create_time:'',
+            comments_count:0,
+            post_id:0,
+            title:'',
+            avatarurl:''
+
+        }
+
         for(let i=0;i<=res.data.results.length-1;i++){
             const a = await app.call({
                 path: '/users/',
                 method: 'GET',
                 data: {
                     openid:res.data.results[i].poster
+
                 }
             })
-            post[i].content=res.data.results[i].content,
-            post[i].name=a.data.name,
-            post[i].like=res.data.results[i].like,
-            post[i].time=res.data.results[i].time,
-            post[i].open_id=res.data.results[i].open_id
+            obj=res.data.results[i]
+            obj.name=a.data.name
+            obj.avatarurl=a.data.avatarurl
+            post[i]=obj
+
         }
         this.setData({
             post:post
         });
-
+console.log(this.data.post)
     },
     subscribe() {
         const a = app.call({
@@ -46,17 +59,25 @@ Page({
         console.log("关注操作")
 
     },
+    cmentsec(e){
+        const post_index = e.currentTarget.dataset.post_index
+        wx.navigateTo({
+            url: `/pages/cmentsec/cmentsec?post_id=${this.data.post[post_index].post_id}`,
+        })
+    },
 
 
-
-    like() {
-
+    like(e) {
+        const post_index = e.currentTarget.dataset.post_index
+        console.log(this.data.post[post_index].post_id)
         app.call({
-            path: '/posts/2/like/',
+            path: `/posts/${this.data.post[post_index].post_id}/like/`,
             method: 'POST'
         })
-        console.log("123")
+        this.onShow()
+        
     },
+    
     click() {
         wx.navigateTo({
             url: '/pages/submit/submit',
@@ -74,9 +95,7 @@ Page({
     /**
      * 生命周期函数--监听页面显示
      */
-    onShow() {
-
-    },
+    
 
     /**
      * 生命周期函数--监听页面隐藏
