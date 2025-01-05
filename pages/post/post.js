@@ -2,6 +2,7 @@ const defaultAvatarUrl = 'https://mmbiz.qpic.cn/mmbiz/icTdbqWNOwNRna42FI242Lcia0
 const app = getApp()
 Page({
     data: {
+        open_id:'',
         post:[],
         log: 1
     },
@@ -45,18 +46,28 @@ Page({
         });
 console.log(this.data.post)
     },
-    subscribe() {
-        const a = app.call({
-            path: '/api/fans/follow/' + open_id + '/',
+    async subscribe(e) {
+        const post_index=e.currentTarget.dataset.post_index
+
+
+        const a = await app.call({
+            path: `/api/fans/follow/${this.data.post[post_index].poster}/`,
             method: 'POST'
         })
-        if (a.statusCode != 401) {
-            app.call({
-                path: '/api/fans/unfollow/' + open_id + '/',
+        console.log(111111111)
+        console.log(a)
+        console.log(111111111)
+        if (a.statusCode ==400) {
+            await app.call({
+                path: `/api/fans/unfollow/${this.data.post[post_index].poster}/`,
                 method: 'POST'
             })
+            console.log(22222222)
+            console.log(a.data)
+            console.log(22222222)
+
         }
-        console.log("关注操作")
+        this.onShow()
 
     },
     cmentsec(e){

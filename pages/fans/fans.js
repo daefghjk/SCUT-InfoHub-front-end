@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    name:app.globalData.userInfo.name,
       fans:[],
       subscribe:[],
       is1:true,
@@ -21,10 +22,10 @@ Page({
    */
   async onLoad() {
     const res =await app.call({
-      path: '/刘益煌/fans/',
+      path: `/${this.data.name}/fans/`,
     })
     const b = await app.call({
-        path:'/刘益煌/idols/'
+        path:`/${this.data.name}/idols/`
     })
     
     console.log(b.data)

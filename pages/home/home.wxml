@@ -11,7 +11,7 @@
         <view class="text" >{{major}}</view>
     </l-grid-item>
     <l-grid-item key="two" slot="two">
-         <view class="num" bind:tap="subscribe">3</view>
+         <view class="num" bind:tap="subscribe">{{number_idols}}</view>
          <view class="text" bind:tap="subscribe">关注</view>
          </l-grid-item>
     <l-grid-item key="three" slot="three">

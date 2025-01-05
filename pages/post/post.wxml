@@ -50,8 +50,8 @@
             <view class="number">{{item.comments_count}}</view>
         </view>
     </view>
-    <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large" bind:tap="subscribe">
-        +关注
+    <l-tag shape="circle" bg-color="#f3f3f3" font-color="#3963BC" slot="more" size="large" catch:tap="subscribe" data-post_index="{{index}}">
+        关注/取消关注
     </l-tag>
 </l-card>
 </view>
